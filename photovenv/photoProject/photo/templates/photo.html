@@ -1,0 +1,28 @@
+{% include 'base.html' %}
+
+<body>
+    <div style="width: 350px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0px 0px 10px #ccc;">
+        <h3 style="text-align: center;">Upload Your Memory</h3>
+        <br>
+        <div>
+            <form method="POST" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                <h6>Choose an Image</h6>
+                <input type="file" name="img" accept="image/png,image/jpeg,image/jpg" style="margin-bottom: 10px;" />
+                <br>
+                <div style="text-align: center;">
+                    <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+                </div>
+            </form>
+            <br>
+            {% comment %}
+            <div>
+                <h6><a style="text-decoration:none;" href="{{ new_url }}">{{ new_url }}</a></h6>
+            </div>
+            {% endcomment %}
+        </div>
+    </div>
+</body>
+
+
+    

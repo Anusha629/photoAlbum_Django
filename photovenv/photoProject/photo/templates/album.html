@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Photo Album</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .photo {
+            width: 100%;
+            padding-bottom: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #034f84;
+            padding: 10px;
+        }
+
+        nav h2 {
+            color: white;
+            margin: 0;
+        }
+
+        .logout-link {
+            text-decoration: none;
+            border: 2px solid white;
+            color: white;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <h2>My Memories</h2>
+        </div>
+
+        <div>
+            <a class="logout-link" href="{% url 'logout' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="photo-grid">
+        {% for photo in photos %}
+        <div class="photo">
+            <img src="{{ photo.file.url }}" alt="Photo">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
