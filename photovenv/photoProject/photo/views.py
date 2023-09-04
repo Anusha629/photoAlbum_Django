@@ -37,18 +37,6 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 #Photo_sharing page
-# def photo_sharing(request):
-
-#     if request.method =='POST':
-#         new_photo = Photo(file = request.FILES['img'])
-#         new_photo.save()
-#         return render(request,'photo.html',{'new_url':str(new_photo.file.url)})
-
-#     else:
-#         return render(request,'photo.html')
-
-
-
 def photo_sharing(request):
     if request.method == 'POST':
         new_photos = request.FILES.getlist('img')  # Get a list of uploaded image files
@@ -62,7 +50,7 @@ def photo_sharing(request):
 
     else:
         return render(request, 'photo.html')
-    
+# logout page    
 def user_logout(request):
     logout(request)
     return redirect('/')
